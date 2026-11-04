@@ -1,0 +1,556 @@
+{
+  "doc_dgip_247_001_fed": {
+    "domain": "Passport_Rules",
+    "source": "user-supplied official pages: dgip.gov.pk Ordinary Passport (last modified 23 Oct 2026)",
+    "urdu_gold_span": "جبکہ راولپنڈی آر پی او میں صرف صبح اور شام کی شفٹیں ہیں۔",
+    "source_quotes": [
+      {
+        "quote": "Passport processing services are now available round the clock from Monday to Sunday",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      },
+      {
+        "quote": "RPO G-10/4 / Senior Citizen Branch, Islamabad Morning, Evening, Night",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      },
+      {
+        "quote": "RPO Garden Town, Lahore Morning, Evening, Night",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      },
+      {
+        "quote": "RPO Awami Markaz, Karachi Morning, Evening, Night",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      },
+      {
+        "quote": "RPO Rawalpindi Morning, Evening",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      }
+    ]
+  },
+  "doc_dgip_epname_001_fed": {
+    "domain": "Passport_Rules",
+    "source": "user-supplied official pages: dgip.gov.pk Ordinary Passport (last modified 23 Oct 2026)",
+    "urdu_gold_span": "پہلے نام کے لیے زیادہ سے زیادہ 50 حروف، جبکہ آخری نام اور والد، شوہر یا سرپرست کے نام کے لیے زیادہ سے زیادہ 40 حروف کی اجازت ہے۔",
+    "source_quotes": [
+      {
+        "quote": "First Name and Last Name are Required",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      },
+      {
+        "quote": "First Name allowed up to 50 characters",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      },
+      {
+        "quote": "Last Name allowed up to 40 characters",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      },
+      {
+        "quote": "Relative (Father/Husband/Guardian) Name allowed up to 40 characters",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      }
+    ]
+  },
+  "doc_dgip_pages_001_fed": {
+    "domain": "Passport_Rules",
+    "source": "user-supplied official pages: dgip.gov.pk Ordinary Passport (last modified 23 Oct 2026)",
+    "urdu_gold_span": "وہ 36 صفحات، 72 صفحات یا 100 صفحات کا پاسپورٹ منتخب کر سکتا ہے، لیکن 72 اور 100 صفحات والے پاسپورٹ کے لیے اضافی فیس دینی ہوگی۔",
+    "source_quotes": [
+      {
+        "quote": "If you are a frequent traveler and pages on your passport are exhausted then you can apply for a fresh passport.",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      },
+      {
+        "quote": "You have the choice to choose 36 pages, 72 pages and 100 pages passport depending upon your requirement, however, you have to pay an extra fee for 72 pages passport and 100 pages passport.",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      }
+    ]
+  },
+  "doc_dgip_process_001_fed": {
+    "domain": "Passport_Rules",
+    "source": "user-supplied official pages: dgip.gov.pk Ordinary Passport (last modified 23 Oct 2026)",
+    "urdu_gold_span": "اسسٹنٹ ڈائریکٹر کا انٹرویو اور فیصلہ",
+    "source_quotes": [
+      {
+        "quote": "Arrival of Applicant at Customer Service Counter.",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      },
+      {
+        "quote": "Capturing of Photograph + Token Issuance with QR Code.",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      },
+      {
+        "quote": "Biometrics / Finger Prints capture.",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      },
+      {
+        "quote": "Verification as per Office Record. (ECL/BL)",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      },
+      {
+        "quote": "Interview and Decision by Assistant Director.",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      },
+      {
+        "quote": "Fee Payment via QR Code",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      }
+    ]
+  },
+  "doc_eobi_benefits_001_fed": {
+    "domain": "Labor_Welfare",
+    "source": "user-supplied official page: EOBI homepage (eobi.gov.pk)",
+    "urdu_gold_span": "بڑھاپے کی گرانٹ اس بیمہ شدہ شخص کو ملتی ہے جو ریٹائرمنٹ کی عمر کو پہنچ جائے مگر پنشن کے لیے کم از کم مطلوبہ حد پوری نہ کرتا ہو۔",
+    "source_quotes": [
+      {
+        "quote": "Under EOB Scheme, Insured Persons are entitled to avail benefit like Old-Age Pension (on the event of retirement), Invalidity Pension (In case of permanent disability), Old-Age Grant (an Insured Person attained superannuation age,but does not posses the minimum threshold for pension)",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      }
+    ]
+  },
+  "doc_eobi_help_001_fed": {
+    "domain": "Labor_Welfare",
+    "source": "user-supplied official page: EOBI homepage (eobi.gov.pk)",
+    "urdu_gold_span": "یہ ہیلپ لائن دفتری اوقات میں پیر سے جمعہ صبح 8 بجے سے شام 4 بجے تک دستیاب ہوتی ہے۔",
+    "source_quotes": [
+      {
+        "quote": "Free Helpline 08000 EOBI (3624), (Office hours during 8.00 AM to 4.00 PM Monday to Friday)",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      }
+    ]
+  },
+  "doc_eobi_retro_001_fed": {
+    "domain": "Labor_Welfare",
+    "source": "user-supplied official page: EOBI homepage (eobi.gov.pk)",
+    "urdu_gold_span": "ای او بی آئی کے مطابق بڑھاپے کی پنشن چھ ماہ سے زیادہ پچھلی مدت کے لیے منظور نہیں کی جا سکتی۔",
+    "source_quotes": [
+      {
+        "quote": "Old Age pension can not be allowed for more than 6 months retroactively",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      }
+    ]
+  },
+  "doc_nadra_multi_001_fed": {
+    "domain": "NADRA_Fees",
+    "source": "user-supplied official page: https://www.nadra.gov.pk/feeStructure (last updated 17-09-2026)",
+    "urdu_gold_span": "مختلف تفصیلات پر نارمل فیس 10,000 روپے اور ایگزیکٹو فیس 20,000 روپے ہے۔",
+    "source_quotes": [
+      {
+        "quote": "Similar Particular or particular with slight difference PKR 1,000/- PKR 20,000/- Inland",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      },
+      {
+        "quote": "With different particular PKR 10,000/- PKR 20,000/- Inland",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      }
+    ]
+  },
+  "doc_nadra_nonprint_001_fed": {
+    "domain": "NADRA_Fees",
+    "source": "user-supplied official page: https://www.nadra.gov.pk/feeStructure (last updated 17-09-2026)",
+    "urdu_gold_span": "نادرا کے فیس شیڈول کے مطابق شناختی کارڈ یا نائیکوپ کے غیر قابلِ طباعت فیلڈز کی تازہ کاری این آر سی سے کرانے پر فیس 100 روپے ہے اور یہ کام 2 دن میں ہوتا ہے۔",
+    "source_quotes": [
+      {
+        "quote": "Updating Non-Printable Fields",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      },
+      {
+        "quote": "CNIC / NICOP (From NRC) RS. 100/- 02 days",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      },
+      {
+        "quote": "CNIC / NICOP (From PakID Mobile App) USD 5/- 02 days",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      },
+      {
+        "quote": "POC USD 30/- 02 days",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      }
+    ]
+  },
+  "doc_nadra_poc_001_fed": {
+    "domain": "NADRA_Fees",
+    "source": "user-supplied official page: https://www.nadra.gov.pk/feeStructure (last updated 17-09-2026)",
+    "urdu_gold_span": "نادرا کے فیس شیڈول کے مطابق نئے اسمارٹ پی او سی کی نارمل فیس 150 ڈالر (31 دن)، ارجنٹ فیس 200 ڈالر (23 دن) اور ایگزیکٹو فیس 250 ڈالر (9 دن) ہے۔",
+    "source_quotes": [
+      {
+        "quote": "New POC USD 150/- 31 days USD 200/- 23 days USD 250/- 09 days",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      },
+      {
+        "quote": "POC Modification USD 200/- 31 days USD 250/- 23 days USD 300/- 09 days",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      },
+      {
+        "quote": "POC Duplicate USD 200/- 31 days USD 250/- 23 days USD 300/- 09 days",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      }
+    ]
+  },
+  "doc_nadra_pocvalid_001_fed": {
+    "domain": "NADRA_Fees",
+    "source": "user-supplied official page: https://www.nadra.gov.pk/feeStructure (last updated 17-09-2026)",
+    "urdu_gold_span": "شریکِ حیات کی بنیاد پر جاری ہونے والے اسمارٹ پی او سی کی میعاد 5 سال ہے۔",
+    "source_quotes": [
+      {
+        "quote": "Smart POC (Ex-Pakistani, Parents based, FPO family members based) 07 years",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      },
+      {
+        "quote": "Smart POC (Spouse based) 05 years",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      }
+    ]
+  },
+  "doc_nepra_it_001_fed": {
+    "domain": "NEPRA_Electricity",
+    "source": "user-supplied official text: S.R.O. 1109(I)/2023, Eligibility Criteria (System Operator Licence) Rules 2023; nepra.org.pk",
+    "urdu_gold_span": "اس میں محفوظ اور قابلِ بھروسہ ڈیٹا اسٹوریج اور نیٹ ورک ڈھانچہ، ڈیٹا کے بیک اپ اور بحالی کا نظام، معلومات کی سیکیورٹی کا مؤثر طریقہ کار، اور شفافیت پورٹلز کے ذریعے معلومات کے تجزیے اور رپورٹنگ کا نظام شامل ہوتا ہے۔",
+    "source_quotes": [
+      {
+        "quote": "shall have or develop a robust IT strategy outlining the planning and execution roadmap for ensuring transparency, effectiveness, efficiency, and security in all operations of the system operator",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      },
+      {
+        "quote": "a secure and reliable data storage and network infrastructure for hosting backend as well as key applications",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      },
+      {
+        "quote": "a reliable data backup and recovery system for operation continuity",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      },
+      {
+        "quote": "an effective information security mechanism, to ensure confidentiality, integrity and the secure availability of data as part of an IT governance framework",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      },
+      {
+        "quote": "an effective and efficient mechanism of analysis and reporting of information through transparency portals, website and other secure information sharing techniques",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      }
+    ]
+  },
+  "doc_nepra_sced_001_fed": {
+    "domain": "NEPRA_Electricity",
+    "source": "user-supplied official text: S.R.O. 1109(I)/2023, Eligibility Criteria (System Operator Licence) Rules 2023; nepra.org.pk",
+    "urdu_gold_span": "سے مراد نظام کی طلب کو انفرادی جنریشن سہولیات میں اس طرح تقسیم کرنا ہے کہ بجلی کی پیداوار سب سے زیادہ کفایتی ہو اور نظام کی مجموعی معیشت، سیکیورٹی اور قابلِ اعتماد ہونے کا خیال رکھا جائے۔",
+    "source_quotes": [
+      {
+        "quote": "the allocation of system demand to individual generation facilities to effect the most economical production of electricity for optimum system economy, security and reliability with due consideration of variable generation costs, incremental network losses, load flow and other operational considerations as may be determined solely by the system operator",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      }
+    ]
+  },
+  "doc_nepra_transp_001_fed": {
+    "domain": "NEPRA_Electricity",
+    "source": "user-supplied official text: S.R.O. 1109(I)/2023, Eligibility Criteria (System Operator Licence) Rules 2023; nepra.org.pk",
+    "urdu_gold_span": "جن میں مختصر مدت کی پیش گوئیاں، ٹرانسمیشن میں رکاوٹیں (کنجیشن)، ٹرانسمیشن لائنوں کی لوڈنگ اور دستیاب گنجائش، یونٹ کمٹمنٹ پر مبنی ڈسپیچ، مارکیٹ قیمتیں اور ریزرو شامل ہیں۔",
+    "source_quotes": [
+      {
+        "quote": "sharing the information and data through website or portal related to short term forecasts, transmission congestions, loading and available capacity of transmission lines, dispatch based on unit commitment, market prices, reserves and all information that is necessary for implementation of competitive wholesale market",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      },
+      {
+        "quote": "international financial reporting standards (IFRS) as applicable in Pakitan",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      }
+    ]
+  },
+  "doc_pakid_login_001_fed": {
+    "domain": "NADRA_Services",
+    "source": "user-supplied official page: https://www.nadra.gov.pk/aboutPakID",
+    "urdu_gold_span": "ایک ہی تصدیق شدہ ڈیجیٹل شناخت کے ذریعے سرکاری، نیم سرکاری اور نجی اداروں کی خدمات تک محفوظ رسائی دیتی ہے۔",
+    "source_quotes": [
+      {
+        "quote": "PakID Mobile enables users to securely log in and access services from government, semi-government, and private organizations through a single verified digital identity",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      },
+      {
+        "quote": "One login for all connected systems",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      },
+      {
+        "quote": "Support for Biometric login on supported devices",
+        "check": "copied from the supplied page/text; checked by reading (no machine check)",
+        "passed": null
+      }
+    ]
+  },
+  "doc_ppc381a_fed": {
+    "domain": "Pakistan_Penal_Code",
+    "source": "user-supplied file Pakistan_Penal_Code.pdf (Act XLV of 1860, version amended up to 2006); portal: https://pakistancode.gov.pk",
+    "urdu_gold_span": "اسے زیادہ سے زیادہ سات سال قید اور ایسے جرمانے کی سزا ہو سکتی ہے جو چوری شدہ گاڑی کی قیمت سے زیادہ نہ ہو۔",
+    "source_quotes": [
+      {
+        "quote": "Whoever commits theft of a car or any other motor vehicle, including motor-cycle, scooter and Tractor shall be punished with imprisonment of either description for a term which may extend to seven years and with fine not exceeding the value of the stolen car or motor vehicle.",
+        "check": "exact match in Pakistan_Penal_Code.pdf text",
+        "passed": true
+      }
+    ]
+  },
+  "doc_ppc383_fed": {
+    "domain": "Pakistan_Penal_Code",
+    "source": "user-supplied file Pakistan_Penal_Code.pdf (Act XLV of 1860, version amended up to 2006); portal: https://pakistancode.gov.pk",
+    "urdu_gold_span": "دفعہ 384 کے تحت بھتہ خوری کی سزا زیادہ سے زیادہ تین سال قید، یا جرمانہ، یا دونوں ہے۔",
+    "source_quotes": [
+      {
+        "quote": "Whoever intentionally puts any person in fear of any injury to that person, or to any other, and thereby dishonestly induces the person so put in fear to deliver to any person any property or valuable security",
+        "check": "exact match in Pakistan_Penal_Code.pdf text",
+        "passed": true
+      },
+      {
+        "quote": "Whoever, commits extortion shall be punished with imprisonment of either description for a term which may extend to three years, or with fine, or with both.",
+        "check": "exact match in Pakistan_Penal_Code.pdf text",
+        "passed": true
+      }
+    ]
+  },
+  "doc_ppc386_fed": {
+    "domain": "Pakistan_Penal_Code",
+    "source": "user-supplied file Pakistan_Penal_Code.pdf (Act XLV of 1860, version amended up to 2006); portal: https://pakistancode.gov.pk",
+    "urdu_gold_span": "اسے زیادہ سے زیادہ دس سال قید کی سزا ہو سکتی ہے اور وہ جرمانے کا بھی ذمہ دار ہوگا۔",
+    "source_quotes": [
+      {
+        "quote": "Whoever commits extortion by putting any person in fear of death or of grievous hurt to that person to any other, shall be punished with imprisonment of either description for a term which may extend to ten years and shall also be liable to fine.",
+        "check": "exact match in Pakistan_Penal_Code.pdf text",
+        "passed": true
+      },
+      {
+        "quote": "attempts to put any person in fear, of any injury",
+        "check": "exact match in Pakistan_Penal_Code.pdf text",
+        "passed": true
+      }
+    ]
+  },
+  "doc_ppc392_fed": {
+    "domain": "Pakistan_Penal_Code",
+    "source": "user-supplied file Pakistan_Penal_Code.pdf (Act XLV of 1860, version amended up to 2006); portal: https://pakistancode.gov.pk",
+    "urdu_gold_span": "رابری (Robbery) کی سزا کم از کم تین سال اور زیادہ سے زیادہ دس سال سخت قید ہے، اور مجرم جرمانے کا بھی ذمہ دار ہوگا۔ اگر یہ جرم شاہراہ پر کیا جائے تو قید کی مدت چودہ سال تک بڑھائی جا سکتی ہے۔",
+    "source_quotes": [
+      {
+        "quote": "shall not be less than three years nor more than",
+        "check": "exact match in Pakistan_Penal_Code.pdf text",
+        "passed": true
+      },
+      {
+        "quote": "ten years, and shall also be liable to fine",
+        "check": "exact match in Pakistan_Penal_Code.pdf text",
+        "passed": true
+      },
+      {
+        "quote": "if the robbery be committed on the highway",
+        "check": "exact match in Pakistan_Penal_Code.pdf text",
+        "passed": true
+      },
+      {
+        "quote": "the imprisonment may be extended to fourteen years",
+        "check": "exact match in Pakistan_Penal_Code.pdf text",
+        "passed": true
+      }
+    ]
+  },
+  "doc_ppc447_fed": {
+    "domain": "Pakistan_Penal_Code",
+    "source": "user-supplied file Pakistan_Penal_Code.pdf (Act XLV of 1860, version amended up to 2006); portal: https://pakistancode.gov.pk",
+    "urdu_gold_span": "دفعہ 447 کے تحت اس کی سزا زیادہ سے زیادہ تین ماہ قید، یا ڈیڑھ ہزار روپے تک جرمانہ، یا دونوں ہے۔",
+    "source_quotes": [
+      {
+        "quote": "Whoever enters into or upon property in the possession of another with intent to commit an offence or to intimidate, insult or annoy any person in possession of such property",
+        "check": "exact match in Pakistan_Penal_Code.pdf text",
+        "passed": true
+      },
+      {
+        "quote": "unlawfully remains there with intent thereby to intimidate, insult or annoy",
+        "check": "exact match in Pakistan_Penal_Code.pdf text",
+        "passed": true
+      },
+      {
+        "quote": "for a term which may extend to three months, or with fine which may extend to",
+        "check": "exact match in Pakistan_Penal_Code.pdf text",
+        "passed": true
+      },
+      {
+        "quote": "one thousand five hundred rupees",
+        "check": "exact match in Pakistan_Penal_Code.pdf text",
+        "passed": true
+      }
+    ]
+  },
+  "doc_ppc448_fed": {
+    "domain": "Pakistan_Penal_Code",
+    "source": "user-supplied file Pakistan_Penal_Code.pdf (Act XLV of 1860, version amended up to 2006); portal: https://pakistancode.gov.pk",
+    "urdu_gold_span": "دفعہ 448 کے تحت گھر میں دراندازی کی سزا زیادہ سے زیادہ ایک سال قید، یا تین ہزار روپے تک جرمانہ، یا دونوں ہے۔",
+    "source_quotes": [
+      {
+        "quote": "Whoever commits criminal trespass by entering into or remaining in any building, tent or vessel used as a human dwelling or any building used as a place for worship, or as a place for the custody of property",
+        "check": "exact match in Pakistan_Penal_Code.pdf text",
+        "passed": true
+      },
+      {
+        "quote": "for a term which may extend to one year, or with fine which may extend to",
+        "check": "exact match in Pakistan_Penal_Code.pdf text",
+        "passed": true
+      },
+      {
+        "quote": "three thousand rupees",
+        "check": "exact match in Pakistan_Penal_Code.pdf text",
+        "passed": true
+      }
+    ]
+  },
+  "doc_tob_r16_fed": {
+    "domain": "Tobacco_Marketing",
+    "source": "user-supplied Gazette of Pakistan Extraordinary, 29 Nov 2016, S.R.O. 1111(I)/2016; https://www.ptb.gov.pk/tobacco-marketing-control-rules-2016-0",
+    "urdu_gold_span": "وہ ان کے ساتھ ہر سال زیادہ سے زیادہ یکم جون تک معاہدے کریں گی۔",
+    "source_quotes": [
+      {
+        "quote": "shall execute agreements with them by the first June of each year, at the latest",
+        "check": "OCR 4-gram recall 1.00 against Tobacco_Marketing_Control_Rules__2016.pdf",
+        "passed": true
+      },
+      {
+        "quote": "payment schedule which shall not exceed 60 days from the date the lifting of purchased stock commences",
+        "check": "OCR 4-gram recall 1.00 against Tobacco_Marketing_Control_Rules__2016.pdf",
+        "passed": true
+      }
+    ]
+  },
+  "doc_tob_r24_fed": {
+    "domain": "Tobacco_Marketing",
+    "source": "user-supplied Gazette of Pakistan Extraordinary, 29 Nov 2016, S.R.O. 1111(I)/2016; https://www.ptb.gov.pk/tobacco-marketing-control-rules-2016-0",
+    "urdu_gold_span": "کاروبار ایک وقت میں دو دن سے زیادہ بند ہو تو متعلقہ ڈسٹرکٹ مجسٹریٹ اور بورڈ کو وجہ بتا کر اطلاع دینا لازمی ہے۔",
+    "source_quotes": [
+      {
+        "quote": "The closure of business, more than two days at a time, shall require intimation to the District Magistrate concerned and the Board, stating the reason in support thereof.",
+        "check": "OCR 4-gram recall 0.84 against Tobacco_Marketing_Control_Rules__2016.pdf",
+        "passed": true
+      },
+      {
+        "quote": "except Sunday or other public holidays",
+        "check": "OCR 4-gram recall 1.00 against Tobacco_Marketing_Control_Rules__2016.pdf",
+        "passed": true
+      }
+    ]
+  },
+  "doc_tob_r4c_fed": {
+    "domain": "Tobacco_Marketing",
+    "source": "user-supplied Gazette of Pakistan Extraordinary, 29 Nov 2016, S.R.O. 1111(I)/2016; https://www.ptb.gov.pk/tobacco-marketing-control-rules-2016-0",
+    "urdu_gold_span": "ہر گریڈ کے پتے کا نمونہ اور وفاقی حکومت کی جانب سے مقرر کردہ اس گریڈ کی کم از کم قیمت نمایاں طور پر آویزاں کرے گا۔",
+    "source_quotes": [
+      {
+        "quote": "Every tobacco company and other purchaser of the tobacco shall prominently display at the purchase depots the leaf sample of each grade and its minimum price notified by the Federal Government.",
+        "check": "OCR 4-gram recall 1.00 against Tobacco_Marketing_Control_Rules__2016.pdf",
+        "passed": true
+      }
+    ]
+  },
+  "doc_tob_r4d_fed": {
+    "domain": "Tobacco_Marketing",
+    "source": "user-supplied Gazette of Pakistan Extraordinary, 29 Nov 2016, S.R.O. 1111(I)/2016; https://www.ptb.gov.pk/tobacco-marketing-control-rules-2016-0",
+    "urdu_gold_span": "کسی بھی سال کی فصل کے لیے تمباکو کمپنی کی جانب سے کاشتکاروں کو ادا کی جانے والی وزنی اوسط قیمت گزشتہ سال کی فصل کی وزنی اوسط قیمت سے کم نہیں ہوگی۔",
+    "source_quotes": [
+      {
+        "quote": "The weighted average price of tobacco for the crop of any year to be paid by a tobacco company to the tobacco growers shall not be lower than the weighted average price paid to them for the crop of the immediately preceding year.",
+        "check": "OCR 4-gram recall 1.00 against Tobacco_Marketing_Control_Rules__2016.pdf",
+        "passed": true
+      },
+      {
+        "quote": "\"weighted average price\" means the average price weighted by the quantities of all graded tobacco purchased by a tobacco company or a tobacco dealer.",
+        "check": "OCR 4-gram recall 1.00 against Tobacco_Marketing_Control_Rules__2016.pdf",
+        "passed": true
+      }
+    ]
+  },
+  "doc_tob_r6_fed": {
+    "domain": "Tobacco_Marketing",
+    "source": "user-supplied Gazette of Pakistan Extraordinary, 29 Nov 2016, S.R.O. 1111(I)/2016; https://www.ptb.gov.pk/tobacco-marketing-control-rules-2016-0",
+    "urdu_gold_span": "اس کمیٹی میں بورڈ کا ایک نمائندہ، صوبائی محکمہ زراعت کا ایک نمائندہ، تمباکو کے کاشتکاروں کا ایک نمائندہ جسے پاکستان ٹوبیکو بورڈ یا صوبائی محکمہ زراعت نامزد کرے، اور تمباکو کمپنیوں کا ایک نمائندہ جسے کمپنیاں نامزد کریں، شامل ہوتے ہیں۔",
+    "source_quotes": [
+      {
+        "quote": "The Federal or Provincial Government shall constitute vigilance Committees at each purchase depot or point consisting of,—",
+        "check": "OCR 4-gram recall 1.00 against Tobacco_Marketing_Control_Rules__2016.pdf",
+        "passed": true
+      },
+      {
+        "quote": "a representative of the Board;",
+        "check": "OCR 4-gram recall 1.00 against Tobacco_Marketing_Control_Rules__2016.pdf",
+        "passed": true
+      },
+      {
+        "quote": "a representative of the Provincial Agriculture Department;",
+        "check": "OCR 4-gram recall 1.00 against Tobacco_Marketing_Control_Rules__2016.pdf",
+        "passed": true
+      },
+      {
+        "quote": "a representative of the tobacco growers, nominated by the PTB or Provincial Agriculture Department;",
+        "check": "OCR 4-gram recall 1.00 against Tobacco_Marketing_Control_Rules__2016.pdf",
+        "passed": true
+      },
+      {
+        "quote": "a representative of the tobacco companies nominated by the tobacco companies.",
+        "check": "OCR 4-gram recall 1.00 against Tobacco_Marketing_Control_Rules__2016.pdf",
+        "passed": true
+      }
+    ]
+  },
+  "doc_tob_r7_fed": {
+    "domain": "Tobacco_Marketing",
+    "source": "user-supplied Gazette of Pakistan Extraordinary, 29 Nov 2016, S.R.O. 1111(I)/2016; https://www.ptb.gov.pk/tobacco-marketing-control-rules-2016-0",
+    "urdu_gold_span": "قاعدہ 8 کے مطابق نگرانی کمیٹی کا فیصلہ اکثریت سے ہوتا ہے اور فریقین پر لازم ہوتا ہے۔",
+    "source_quotes": [
+      {
+        "quote": "The vigilance committees shall check the grades assigned to various types of tobacco used for the manufacture of cigarettes",
+        "check": "OCR 4-gram recall 1.00 against Tobacco_Marketing_Control_Rules__2016.pdf",
+        "passed": true
+      },
+      {
+        "quote": "no purchaser unnecessarily rejects, or pays price for tobacco, at rates lower than the minimum notified rates",
+        "check": "OCR 4-gram recall 1.00 against Tobacco_Marketing_Control_Rules__2016.pdf",
+        "passed": true
+      },
+      {
+        "quote": "The decision of the vigilance committee shall be taken by majority and shall be binding on the parties.",
+        "check": "OCR 4-gram recall 1.00 against Tobacco_Marketing_Control_Rules__2016.pdf",
+        "passed": true
+      }
+    ]
+  }
+}

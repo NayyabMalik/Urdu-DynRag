@@ -1,0 +1,15 @@
+# Virtual Environment
+.venv/
+__pycache__/
+*.pyc
+
+# Environment Secrets
+.env
+
+# Data & Model weights cache
+*.index
+*.faiss
+*.pt
+output/
+results/
+cache/
