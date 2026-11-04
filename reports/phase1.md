@@ -68,6 +68,8 @@ Disagreements noted:
 
 ## 3. Comprehensive Five-System Benchmark Results (with Controls & Bootstrap CIs)
 
+> **Important Clarification on Predictions:** The original `results_v1/` execution records stored only action choices, latency, and token counts, but did **not** store generated textual answers. All generator predictions evaluated in this table are **fresh generations** (using `qwen/qwen-2.5-7b-instruct` via OpenRouter at `temperature=0.2`, one sample per query). As documented in `docs/AUDIT.md`, latency includes remote API round-trip time and cannot be interpreted as local computational efficiency.
+
 Computed from `experiments/phase1_benchmark_records.csv` across all 101 test queries. 95% confidence intervals are computed via passage-level bootstrap resampling (1,000 iterations over the 85 passages):
 
 | System | Key-Fact Acc (%) [95% CI] | Macro Fact Acc (%) | Token F1 (%) | Hit@1 (%) [n=76] | Hit@5 (%) [n=76] | MRR [n=76] | S5 Match [n=19] | S5 Abs F1 (%) | False Abs (%) | Lang Leak (%) | Ans Len (Med, IQR) |
@@ -90,8 +92,8 @@ Computed from `experiments/phase1_benchmark_records.csv` across all 101 test que
 2. **True Grounded Retrieval Performance ($n=76$):**
    * Evaluating Hit@1 only on answerable grounded queries reveals that BGE-M3 achieves **89.5% Hit@1**, **98.7% Hit@5**, and **0.936 MRR**.
    * ReAct drops retrieval performance (Hit@1: **81.6%**, MRR: **0.840**) because prompting an LLM to pick tools zero-shot introduces routing errors.
-3. **Abstention and Noise Filtering:**
-   * Urdu-DynRAG achieves the highest $S_5$ Abstention F1 (**62.5%** vs 58.8% for Vanilla/DR-RAG) and cuts False Abstention on answerable queries almost in half (**3.7%** vs 6.1%).
-4. **Statistical Significance Note:**
-   * Notice that the 95% bootstrap confidence intervals for Vanilla RAG `[32.0, 52.9]` and Urdu-DynRAG `[34.0, 53.3]` heavily overlap on this 101-item split.
-   * The primary gain of Urdu-DynRAG in this initial setup is in abstention precision and efficiency, setting the exact empirical foundation for Phase 2 (passage-grouped cross-validation) and Phase 5 (true transliteration-based reformulation).
+3. **Statistical Parity Across RAG Baselines:**
+   * The 95% bootstrap confidence intervals for Vanilla RAG `[32.0, 52.9]` and Urdu-DynRAG `[34.0, 53.3]` heavily overlap on this 101-item split.
+   * The nominal differences in Key-Fact Accuracy (42.6% vs 43.6%) and Abstention F1 (58.8% vs 62.5%) fall well inside the margin of sampling uncertainty ($\pm 10.5\%$). No statistically significant superiority of Urdu-DynRAG over Vanilla Chunk RAG or DR-RAG can be claimed on this evaluation fold.
+   * In Phase 1b, evaluation moves to strictly greedy decoding ($T=0.0$), paired difference confidence intervals ($\Delta$ vs Vanilla), and explicit separation of answerable vs unanswerable metrics.
+

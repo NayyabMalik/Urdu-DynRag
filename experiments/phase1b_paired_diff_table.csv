@@ -1,0 +1,6 @@
+System,Δ Key-Fact Acc vs Vanilla (%) [95% CI],Acc Sig (p<0.05)?,Δ Token F1 vs Vanilla (%) [95% CI],F1 Sig (p<0.05)?
+Direct Gen (No RAG),"-49.59 [-62.66, -35.77]",Yes,"-4.23 [-13.18, +4.80]",No
+Vanilla Chunk RAG,"+0.00 [+0.00, +0.00]",No,"+0.00 [+0.00, +0.00]",No
+"DR-RAG (Ahmad et al., 2026)","+0.00 [+0.00, +0.00]",No,"+0.00 [+0.00, +0.00]",No
+Zero-Shot ReAct Agent,"-0.41 [-3.79, +3.51]",No,"+0.80 [-0.47, +2.49]",No
+Urdu-DynRAG (Ours),"+1.22 [+0.00, +4.11]",No,"+1.52 [+0.39, +3.28]",Yes

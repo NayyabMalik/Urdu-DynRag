@@ -179,5 +179,6 @@ def test_golden_25_agreement():
         for d in disagreements:
             print(f"  ID {d['id']} ({d['style']}): Hand='{d['hand_label']}' vs MetricAcc={d['metric_acc']} (Decision='{d['metric_decision']}')")
 
-    # Strict requirement: agreement >= 90% (at least 23 / 25)
-    assert agreement_pct >= 90.0, f"Golden agreement was {agreement_pct:.1f}%, expected >= 90%!"
+    # Strict requirement: agreement >= 96.0% (at least 24 / 25)
+    assert agreement_pct >= 96.0, f"Golden agreement was {agreement_pct:.1f}%, expected >= 96.0%!"
+
