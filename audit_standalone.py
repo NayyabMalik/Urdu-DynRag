@@ -99,3 +99,4 @@ for sys_name, sub in raw_df.groupby('system'):
     print(f"  {sys_name}: Mean = {sub['latency_ms'].mean():.1f} ms, Median = {sub['latency_ms'].median():.1f} ms, Std = {sub['latency_ms'].std():.1f} ms")
 
 print("\n--- Summary complete ---")
+

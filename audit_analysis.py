@@ -83,3 +83,4 @@ for sys_name in ['Direct Gen (No RAG)', 'Vanilla Chunk RAG', 'DR-RAG (Ahmad et a
 print("\n[Point h] Latency by system:")
 for sys_name, sub in raw_df.groupby('system'):
     print(f"  {sys_name}: Mean = {sub['latency_ms'].mean():.1f} ms, Median = {sub['latency_ms'].median():.1f} ms, Std = {sub['latency_ms'].std():.1f} ms")
+
