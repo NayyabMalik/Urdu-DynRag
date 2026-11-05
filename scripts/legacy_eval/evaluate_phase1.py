@@ -3,6 +3,11 @@ import re
 import sys
 import time
 from pathlib import Path
+
+_ROOT = Path(__file__).resolve().parent.parent.parent
+if str(_ROOT) not in sys.path:
+    sys.path.insert(0, str(_ROOT))
+
 import numpy as np
 import pandas as pd
 from dotenv import load_dotenv

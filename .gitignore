@@ -1,16 +1,41 @@
-# Virtual Environment
-.venv/
+# Byte-compiled / optimized / DLL files
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+*.so
 
-# Environment Secrets
+# Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+
+# Environment Variables & Secrets
 .env
+.env.local
 
-# Data & Model weights cache
+# PyTorch / FAISS / Embeddings Cache & Checkpoints
 *.index
 *.faiss
 *.pt
+cache/
 output/
 results/
-cache/
+models/*.pt
+
+# Testing & Type Checking
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+
+# IDE & OS Artifacts
+.vscode/
+.idea/
+*.sublime-workspace
+.DS_Store
+Thumbs.db
+*.log
+
+# Scratch scripts
 scratch/
