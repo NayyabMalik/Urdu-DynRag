@@ -51,6 +51,16 @@ except ImportError:
     from src.phase1_indexer import DualFAISSRetriever
     from src.phase2_state_extractor import UrduRAGStateExtractor, tokenize_text
 
+try:
+    from src.reformulator import DeterministicUrduReformulator
+except ImportError:
+    try:
+        from reformulator import DeterministicUrduReformulator
+    except ImportError:
+        DeterministicUrduReformulator = None
+
+_GLOBAL_REFORMULATOR = None
+
 
 # ==============================================================================
 # 1. Linguistic Normalization & Reformulation Dictionary (for Action 3)
@@ -118,30 +128,26 @@ CONVERSATIONAL_FILLERS = [
 ]
 
 
-def reformulate_query(query: str, llm_client: Optional[Any] = None) -> str:
+def reformulate_query(query: str, reformulator: Optional[Any] = None) -> str:
     """
-    Action 3 execution: Normalize, clean conversational noise, and translate
-    Roman Urdu tokens into formal Urdu Nastaliq retrieval keywords.
+    Action 3 execution: Deterministic Urdu Reformulation and Normalization.
+    Normalizes Roman Urdu and code-switched queries to formal Nastaliq.
     """
-    text = query.strip()
+    global _GLOBAL_REFORMULATOR
+    if reformulator is not None and hasattr(reformulator, "reformulate"):
+        return reformulator.reformulate(query)
 
-    # Strategy 1: If LLM is available via API, ask for a 1-shot concise search rewrite
-    if llm_client is not None:
+    if _GLOBAL_REFORMULATOR is None and DeterministicUrduReformulator is not None:
         try:
-            prompt = (
-                f"Rewrite this conversational or Roman Urdu query into 3-5 formal Urdu Nastaliq search keywords.\n"
-                f"Original: {text}\n"
-                f"Output Urdu search keywords only (no explanation):"
-            )
-            resp = llm_client.generate(prompt, max_tokens=25)
-            clean_res = resp.strip().replace("\n", " ")
-            if len(clean_res) > 3 and any("\u0600" <= c <= "\u06FF" for c in clean_res):
-                return clean_res
+            _GLOBAL_REFORMULATOR = DeterministicUrduReformulator()
         except Exception:
-            pass
+            _GLOBAL_REFORMULATOR = None
 
-    # Strategy 2: Fast deterministic rule-based normalizer
-    # Remove conversational filler regex
+    if _GLOBAL_REFORMULATOR is not None:
+        return _GLOBAL_REFORMULATOR.reformulate(query)
+
+    # Strategy 2: Fast deterministic rule-based normalizer fallback
+    text = query.strip()
     for pattern in CONVERSATIONAL_FILLERS:
         text = re.sub(pattern, "", text, flags=re.IGNORECASE)
 
@@ -283,12 +289,16 @@ class UrduRAGEnv(gym.Env):
         self,
         dataset_path: Optional[str] = None,
         split: str = "train",
+        dataset_records: Optional[List[Dict[str, Any]]] = None,
         retriever: Optional[DualFAISSRetriever] = None,
         state_extractor: Optional[UrduRAGStateExtractor] = None,
         generator: Optional[FrozenAnswerGenerator] = None,
+        reformulator: Optional[Any] = None,
+        outcome_table: Optional[Dict[str, Any]] = None,
+        outcome_table_path: Optional[str] = "cache/action_outcome_table.json",
         max_steps: int = 3,
-        lambda_retrieval: float = 0.15,
-        lambda_tokens: float = 0.05,
+        lambda_retrieval: float = 0.06,
+        lambda_tokens: float = 0.02,
         omega_penalty: float = 1.5,
         training_mode: bool = False,
     ) -> None:
@@ -310,7 +320,10 @@ class UrduRAGEnv(gym.Env):
         self.action_space = spaces.Discrete(4)
 
         # Load Dataset Split
-        self.dataset = self._load_dataset_split(dataset_path, split)
+        if dataset_records is not None:
+            self.dataset = dataset_records
+        else:
+            self.dataset = self._load_dataset_split(dataset_path, split)
         if len(self.dataset) == 0:
             raise ValueError(f"No records found for split '{split}' in dataset.")
 
@@ -318,6 +331,25 @@ class UrduRAGEnv(gym.Env):
         self.retriever = retriever or DualFAISSRetriever()
         self.state_extractor = state_extractor or UrduRAGStateExtractor(retriever=self.retriever)
         self.generator = generator or FrozenAnswerGenerator()
+
+        if reformulator is not None:
+            self.reformulator = reformulator
+        elif DeterministicUrduReformulator is not None:
+            try:
+                self.reformulator = DeterministicUrduReformulator()
+            except Exception:
+                self.reformulator = None
+        else:
+            self.reformulator = None
+
+        # Action-Outcome Lookup Table
+        self.outcome_table = outcome_table
+        if self.outcome_table is None and outcome_table_path and Path(outcome_table_path).exists():
+            try:
+                with open(outcome_table_path, "r", encoding="utf-8") as f:
+                    self.outcome_table = json.load(f)
+            except Exception:
+                self.outcome_table = None
 
         # Episode State Tracking
         self.current_item: Dict[str, Any] = {}
@@ -437,12 +469,12 @@ class UrduRAGEnv(gym.Env):
                 return self.current_state, float(reward), terminated, truncated, info
 
             # Execute query rewrite
-            new_query = reformulate_query(self.current_query)
+            new_query = reformulate_query(self.current_query, reformulator=self.reformulator)
             self.current_query = new_query
             self.reformulated_flag = True
 
-            # Step cost for reformulation: Cost_retrieval(a=3) = 0.3
-            step_cost = self.lambda_1 * 0.3
+            # Step cost for reformulation: fixed at 0.02
+            step_cost = 0.02
             reward -= step_cost
 
             # Check horizon limit
@@ -471,62 +503,78 @@ class UrduRAGEnv(gym.Env):
         cost_retrieval = 0.0
 
         if action == 0:
-            # Action 0: Direct Parametric Generation (No retrieval)
-            retrieved_context = ""
+            traj_key = "0"
             cost_retrieval = 0.0
-
         elif action == 1:
-            # Action 1: Retrieve from Raw Passage Chunks (D_raw)
+            traj_key = "3->1" if self.reformulated_flag else "1"
+            cost_retrieval = 1.0
+        elif action == 2:
+            traj_key = "3->2" if self.reformulated_flag else "2"
+            cost_retrieval = 1.0
+
+        item_id = self.current_item.get("id", "")
+        q_style = self.current_item.get("query_style", "")
+        is_s5 = (q_style == "style_5_hard_distractor")
+
+        # Fast path: use offline outcome table if available
+        if self.outcome_table and item_id in self.outcome_table and traj_key in self.outcome_table[item_id]:
+            outcome = self.outcome_table[item_id][traj_key]
+            acc = outcome["key_fact_acc"]
+            f1_score = outcome["token_f1"]
+            is_hit1 = outcome["is_hit1"]
+            generated_answer = outcome["prediction"]
+            context_tokens = outcome["context_tokens"]
+            cost_tokens = float(context_tokens) / 1000.0
+
+            if is_s5:
+                # Unanswerable S5: R = acc - lambda_1 * cost_retrieval
+                reward = float(acc) - (self.lambda_1 * cost_retrieval)
+            else:
+                # Answerable: R = acc + 0.15 * is_hit1 - lambda_1 * cost_retrieval - lambda_2 * cost_tokens
+                reward = float(acc) + (0.15 if is_hit1 else 0.0) - (self.lambda_1 * cost_retrieval) - (self.lambda_2 * cost_tokens)
+
+            info.update({
+                "trajectory": traj_key,
+                "generated_answer": generated_answer,
+                "gold_answer": gold_answer,
+                "key_fact_acc": acc,
+                "token_f1": f1_score,
+                "is_hit1": is_hit1,
+                "retrieval_cost": cost_retrieval,
+                "context_tokens": context_tokens,
+                "final_reward": float(reward),
+            })
+            return self.current_state, float(reward), terminated, truncated, info
+
+        # Fallback if outcome table is missing
+        if action == 0:
+            retrieved_context = ""
+        elif action == 1:
             raw_res = self.retriever.search_raw(self.current_query, k=1)
             if raw_res:
                 retrieved_context = raw_res[0]["text"]
                 info["retrieved_passage_id"] = raw_res[0]["passage_id"]
-            cost_retrieval = 1.0
-
         elif action == 2:
-            # Action 2: Retrieve from DR Question-Pair Index (D_qa)
             qa_res = self.retriever.search_qa(self.current_query, k=1)
             if qa_res:
                 retrieved_context = qa_res[0]["parent_text"]
                 info["retrieved_passage_id"] = qa_res[0]["parent_passage_id"]
                 info["matched_synthetic_q"] = qa_res[0]["synthetic_question"]
-            cost_retrieval = 1.0
 
-        # Generate answer y via frozen generator (or fast simulation during training)
-        target_pid = self.current_item.get("passage_id", "")
-        if self.training_mode:
-            # High-speed deterministic reward for RL training
-            if action == 0:
-                is_correct = (optimal_action == "direct_generation")
-                f1_score = 0.85 if is_correct else 0.20
-            else:
-                retrieved_pid = info.get("retrieved_passage_id", "")
-                hit = (retrieved_pid == target_pid) if target_pid else False
-                f1_score = 0.82 if hit else 0.22
-            generated_answer = gold_answer if f1_score > 0.5 else "معلومات دستیاب نہیں۔"
-        else:
-            generated_answer = self.generator.generate_answer(
-                query=self.current_query,
-                context=retrieved_context if retrieved_context else None,
-            )
-            f1_score = compute_token_f1(generated_answer, gold_answer)
-
-        # 1. Compute R_accuracy (Token F1 Score)
+        generated_answer = self.generator.generate_answer(
+            query=self.current_query,
+            context=retrieved_context if retrieved_context else None,
+        )
+        f1_score = compute_token_f1(generated_answer, gold_answer)
         r_acc = f1_score
-
-        # Gold span bonus (+0.1 if retrieved context contains gold_span)
         if gold_span and retrieved_context and gold_span.strip() in retrieved_context:
             r_acc += 0.1
 
-        # 2. Compute Costs
         context_tokens = len(retrieved_context.split())
         cost_tokens = float(context_tokens) / 1000.0
-
-        # Full Reward Formulation:
-        # R = R_acc - lambda_1 * Cost_retrieval - lambda_2 * Cost_tokens
         total_reward = r_acc - (self.lambda_1 * cost_retrieval) - (self.lambda_2 * cost_tokens)
-
         reward = float(total_reward)
+
         info.update({
             "generated_answer": generated_answer,
             "gold_answer": gold_answer,
@@ -535,6 +583,7 @@ class UrduRAGEnv(gym.Env):
             "context_tokens": context_tokens,
             "final_reward": reward,
         })
+        return self.current_state, reward, terminated, truncated, info
 
         return self.current_state, reward, terminated, truncated, info
 
