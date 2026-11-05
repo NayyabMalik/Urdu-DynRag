@@ -51,10 +51,10 @@ from tqdm import tqdm
 
 load_dotenv()
 
-from phase1_indexer import DualFAISSRetriever
-from phase2_state_extractor import UrduRAGStateExtractor, tokenize_text
-from phase3_env import UrduRAGEnv, reformulate_query
-from phase4_train import DQNPolicy, ReplayBuffer
+from src.phase1_indexer import DualFAISSRetriever
+from src.phase2_state_extractor import UrduRAGStateExtractor, tokenize_text
+from src.phase3_env import UrduRAGEnv, reformulate_query
+from src.phase4_train import DQNPolicy, ReplayBuffer
 from src.generator import UnifiedGenerator
 from src.metrics import (
     compute_key_fact_accuracy,

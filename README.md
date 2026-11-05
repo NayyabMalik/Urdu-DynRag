@@ -229,22 +229,6 @@ python src\generate_paper_figures.py
 python -m pytest tests/test_reformulator.py -v
 ```
 
----
-
-## 📜 Citation
-
-If you use Urdu-DynRAG in your research, please cite:
-
-```bibtex
-@inproceedings{malik2026urdudynrag,
-  title     = {Closing the Script Gap: Reinforcement-Guided Dynamic Retrieval and Reformulation for Low-Resource Urdu Question Answering},
-  author    = {Malik, Nayyab and Contributors},
-  booktitle = {Proceedings of the Annual Meeting of the Association for Computational Linguistics (ACL)},
-  year      = {2026}
-}
-```
-
----
 
 ## 📄 License
 

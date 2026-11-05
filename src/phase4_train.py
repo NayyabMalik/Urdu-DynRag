@@ -45,13 +45,13 @@ load_dotenv()
 
 # Project imports
 try:
-    from phase1_indexer import DualFAISSRetriever
-    from phase2_state_extractor import UrduRAGStateExtractor
-    from phase3_env import FrozenAnswerGenerator, UrduRAGEnv, reformulate_query
-except ImportError:
     from src.phase1_indexer import DualFAISSRetriever
     from src.phase2_state_extractor import UrduRAGStateExtractor
     from src.phase3_env import FrozenAnswerGenerator, UrduRAGEnv, reformulate_query
+except ImportError:
+    from phase1_indexer import DualFAISSRetriever
+    from phase2_state_extractor import UrduRAGStateExtractor
+    from phase3_env import FrozenAnswerGenerator, UrduRAGEnv, reformulate_query
 
 
 # ==============================================================================

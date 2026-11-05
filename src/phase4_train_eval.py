@@ -53,13 +53,13 @@ from dotenv import load_dotenv
 load_dotenv()
 
 try:
-    from phase1_indexer import DualFAISSRetriever
-    from phase2_state_extractor import UrduRAGStateExtractor, tokenize_text
-    from phase3_env import FrozenAnswerGenerator, UrduRAGEnv, compute_token_f1, reformulate_query
-except ImportError:
     from src.phase1_indexer import DualFAISSRetriever
     from src.phase2_state_extractor import UrduRAGStateExtractor, tokenize_text
     from src.phase3_env import FrozenAnswerGenerator, UrduRAGEnv, compute_token_f1, reformulate_query
+except ImportError:
+    from phase1_indexer import DualFAISSRetriever
+    from phase2_state_extractor import UrduRAGStateExtractor, tokenize_text
+    from phase3_env import FrozenAnswerGenerator, UrduRAGEnv, compute_token_f1, reformulate_query
 
 
 # ==============================================================================

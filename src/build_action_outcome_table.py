@@ -36,7 +36,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-from phase1_indexer import DualFAISSRetriever
+from src.phase1_indexer import DualFAISSRetriever
 from src.generator import UnifiedGenerator
 from src.reformulator import DeterministicUrduReformulator
 from src.metrics import (

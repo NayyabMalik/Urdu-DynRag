@@ -40,10 +40,10 @@ load_dotenv()
 
 # Import Phase 1 Dual-Representation Retriever
 try:
-    from phase1_indexer import DualFAISSRetriever
+    from src.phase1_indexer import DualFAISSRetriever
 except ImportError:
     try:
-        from src.phase1_indexer import DualFAISSRetriever
+        from phase1_indexer import DualFAISSRetriever
     except ImportError:
         DualFAISSRetriever = None  # type: ignore
 
@@ -359,9 +359,9 @@ class UrduRAGStateExtractor:
         print(f"[StateExtractor] Pre-computing states for {len(dataset_items)} items in vectorized batch mode...")
         # Local import to avoid circular dependency
         try:
-            from phase3_env import reformulate_query
-        except ImportError:
             from src.phase3_env import reformulate_query
+        except ImportError:
+            from phase3_env import reformulate_query
 
         needed_queries = set()
         query_states_map = []

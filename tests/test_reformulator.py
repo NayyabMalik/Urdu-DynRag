@@ -13,7 +13,7 @@ from pathlib import Path
 import pytest
 
 from src.reformulator import DeterministicUrduReformulator, compute_urdu_script_ratio
-from phase1_indexer import DualFAISSRetriever
+from src.phase1_indexer import DualFAISSRetriever
 
 
 @pytest.fixture(scope="module")

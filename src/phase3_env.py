@@ -45,11 +45,11 @@ load_dotenv()
 
 # Project dependencies from Phase 1 and Phase 2
 try:
-    from phase1_indexer import DualFAISSRetriever
-    from phase2_state_extractor import UrduRAGStateExtractor, tokenize_text
-except ImportError:
     from src.phase1_indexer import DualFAISSRetriever
     from src.phase2_state_extractor import UrduRAGStateExtractor, tokenize_text
+except ImportError:
+    from phase1_indexer import DualFAISSRetriever
+    from phase2_state_extractor import UrduRAGStateExtractor, tokenize_text
 
 try:
     from src.reformulator import DeterministicUrduReformulator
