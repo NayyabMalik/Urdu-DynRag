@@ -12,18 +12,38 @@ env/
 
 # Environment Variables & Secrets
 .env
-.env.local
+.env.*
+!.env.example
 
-# PyTorch / FAISS / Embeddings Cache & Checkpoints
+# Private Research Materials & Experiments (Strict Exclusion)
+results_v1/
+docs/
+experiments/
+reports/
+models/
+scripts/
+scratch/
+cache/
+tests/audit_phase1_phase2.py
+
+# Papers, LaTeX, and Submissions
+paper/
+paper*/
+Urdu_DynRAG__*/
+*.zip
+*.tar.gz
+
+# Diagram Source Scripts & Drafts
+diagrams/
+
+# Checkpoints, Embeddings & FAISS Indices
 *.index
 *.faiss
 *.pt
-cache/
 output/
 results/
-models/*.pt
 
-# Testing & Type Checking
+# Testing & Cache
 .pytest_cache/
 .coverage
 htmlcov/
@@ -36,6 +56,3 @@ htmlcov/
 .DS_Store
 Thumbs.db
 *.log
-
-# Scratch scripts
-scratch/

@@ -1,13 +1,11 @@
-# Urdu-DynRAG: Dynamic RL-Guided Adaptive Retrieval for Under-Resourced & Mixed-Script QA
+# Urdu-DynRAG: Dynamic Routing and Query Reformulation for Cross-Script Retrieval: Benchmarking Roman Urdu on Official Pakistani Documents
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-ee4c2c.svg)](https://pytorch.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Evaluation](https://img.shields.io/badge/Benchmark-5--Fold%20CV%20(N=455)-success.svg)](experiments/)
-[![Code Style: Clean](https://img.shields.io/badge/code%20style-PEP8-black.svg)](src/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 > **Official Implementation** for the paper:  
-> *"Closing the Script Gap: Reinforcement-Guided Dynamic Retrieval and Reformulation for Low-Resource Urdu Question Answering"*.
+> *"Urdu-DynRAG: A Dynamic Routing and Query Reformulation Framework for Cross-Script Retrieval: Benchmarking Roman Urdu on Official Pakistani Documents"*.
 
 ---
 
@@ -26,7 +24,17 @@ Modern dense retrieval models (such as BGE-M3 and Multilingual-E5) achieve high 
 
 ---
 
-## 🏗️ Architecture & MDP Workflow
+## 🏗️ Architecture & Methodology
+
+<p align="center">
+  <img src="figures/fig1_architecture.png" alt="Urdu-DynRAG Architecture" width="95%">
+</p>
+
+### End-to-End Methodological Pipeline
+
+<p align="center">
+  <img src="figures/fig2_methodology.png" alt="Urdu-DynRAG Methodology" width="95%">
+</p>
 
 ```mermaid
 flowchart TD
@@ -46,8 +54,6 @@ flowchart TD
     A1 --> Gen
     A2 --> Gen
 ```
-
-*Figure 1 architectural diagram is available in vector format at [`experiments/figures/fig1_architecture.pdf`](experiments/figures/fig1_architecture.pdf).*
 
 ---
 
@@ -100,7 +106,7 @@ All evaluations were executed under a **strictly grouped 5-fold cross-validation
 ### Table 5: Orthographic Noise Robustness Stress Test ($N=85$ Roman Urdu Queries)
 Under unstandardized orthography, text-message vowel dropping, and phonetic consonants:
 | Noise Regime | Description | Vanilla Hit@1 | DynRAG Hit@1 | DynRAG Advantage |
-| :--- | :--- | :---: | :---: | :---: |
+| :--- | :---: | :---: | :---: | :---: |
 | **Clean Roman Urdu** | Canonical Latin transliteration | 75.3% | **97.6%** | **+22.3%** |
 | **Regime A: Vowel Shifts** | Phonetic substitutions (`ee` $\leftrightarrow$ `i`, `oo` $\leftrightarrow$ `u`) | 80.0% | **84.7%** | **+4.7%** |
 | **Regime B: Consonants** | Orthographic variance (`sh` $\to$ `s`, `q` $\to$ `k`, `z` $\to$ `j`) | 74.1% | **83.5%** | **+9.4%** |
@@ -111,7 +117,7 @@ Under unstandardized orthography, text-message vowel dropping, and phonetic cons
 
 ## 📁 Repository Layout
 
-The codebase adopts standard, modular research engineering practices:
+The public repository structure is organized cleanly for evaluation and reproduction:
 
 ```
 Urdu-DynRAG/
@@ -121,56 +127,36 @@ Urdu-DynRAG/
 ├── requirements.txt               # Pinned dependencies
 ├── .env.example                   # API configuration template
 │
+├── figures/                       # Publication diagrams & architecture overviews
+│   ├── fig1_architecture.png     # Two-step MDP architecture diagram
+│   └── fig2_methodology.png      # Methodological workflow & evaluation pipeline
+│
 ├── src/                           # Core Library & Canonical Runners
 │   ├── __init__.py
 │   ├── phase1_indexer.py          # Dual FAISS Indexing (D_raw & D_qa)
 │   ├── phase2_state_extractor.py  # 14-dimensional feature extraction & tokenization
 │   ├── phase3_env.py              # 2-step MDP Gymnasium environment
 │   ├── phase4_train.py            # Double DQN Policy & Replay Buffer
+│   ├── phase4_train_eval.py       # Baseline evaluation harness & policy evaluation
 │   ├── reformulator.py            # DeterministicUrduReformulator (350+ term legal lexicon)
 │   ├── generator.py               # Unified LLM inference wrapper (T=0.0)
 │   ├── metrics.py                 # Fact accuracy, token F1, and bootstrap CI suite
 │   ├── phase2_cv_benchmark.py     # Main 5-Fold Passage-Grouped CV runner
 │   ├── test_roman_urdu_robustness.py # Table 5 Orthographic stress test runner
-│   ├── generate_paper_figures.py  # Camera-ready publication figures generator
+│   ├── generate_paper_figures.py  # Publication figures generator
 │   └── build_action_outcome_table.py # Action-outcome cache builder
 │
 ├── data/                          # Benchmark Datasets & Legal Passages
 │   ├── urdu_dynrag_verified_corpus_v3.json   # 85 verified legal/civic passages
 │   ├── urdu_dynrag_verified_dataset_v3.json  # 455 multi-style benchmark queries
-│   └── raw_laws/                             # Reference statutes and penal code
+│   └── urdu_dynrag_source_trace_new_passages.json # Source provenance trace
 │
-├── experiments/                   # Generated Benchmark Results & Publication Figures
-│   ├── figures/                              # High-resolution (300 DPI) PNG & PDF Figures
-│   │   ├── fig1_architecture.{png,pdf}      # 2-step MDP architecture diagram
-│   │   ├── fig2_style_performance.{png,pdf} # Disaggregated style comparisons
-│   │   ├── fig3_ablation_impact.{png,pdf}   # Ablation bar charts
-│   │   └── fig4_orthographic_robustness.{png,pdf} # Robustness curves
-│   ├── phase2_cv_summary_table.md            # Official Table 1
-│   ├── phase2_cv_style_breakdown.md          # Official Table 2
-│   ├── phase2_cv_paired_diff.md              # Official Table 3
-│   ├── phase2_ablation_table.md              # Official Table 4
-│   └── roman_urdu_robustness_table.md        # Official Table 5
-│
-├── reports/                       # Detailed Technical Reports
-│   ├── phase1.md                             # Phase 1 verification report
-│   ├── phase1b.md                            # Phase 1b audit & headroom report
-│   └── phase2.md                             # Phase 2 5-fold CV & ablation report
-│
-├── docs/                          # Specifications & Master Plans
-│   ├── AUDIT.md                              # Audit of Phase 1b code bugs & fixes
-│   ├── prompt_templates.md                   # Exact LLM prompts (ACL Reproducibility)
-│   ├── specs/                                # System specifications PDF
-│   └── README.md                             # Documentation index
-│
-├── scripts/                       # Historical Drivers & Audit Utilities
-│   ├── audit/                                # Verification and audit scripts
-│   └── legacy_eval/                          # Historical evaluation runners
-│
-└── tests/                         # Pytest Automated Test Suite
-    ├── test_reformulator.py                  # Unit tests for script normalization & caching
-    ├── test_generator.py                     # Generator API integration tests
-    └── test_metrics.py                       # Evaluation metrics unit tests
+└── tests/                         # Automated Unit Tests & Golden Fixtures
+    ├── test_reformulator.py       # Unit tests for script normalization & caching
+    ├── test_generator.py          # Generator API integration tests
+    ├── test_metrics.py            # Evaluation metrics unit tests
+    ├── golden_25.json             # Golden reference validation split
+    └── golden_extra_20.json       # Additional reference test fixtures
 ```
 
 ---
@@ -203,7 +189,6 @@ Executes the full 5-fold passage-grouped cross-validation across all 455 benchma
 ```powershell
 python src\phase2_cv_benchmark.py
 ```
-*Outputs are saved directly to `experiments/phase2_cv_summary_table.md` and `experiments/phase2_ablation_table.md`.*
 
 ### 3. Reproduce Roman Urdu Orthographic Noise Stress Test (Table 5)
 
@@ -212,25 +197,17 @@ Evaluates the 85 Roman Urdu queries across the 5 synthetic noise regimes:
 ```powershell
 python src\test_roman_urdu_robustness.py
 ```
-*Outputs are saved to `experiments/roman_urdu_robustness_table.md`.*
 
-### 4. Generate Camera-Ready Publication Figures (Figures 1–4)
-
-Generates 300 DPI high-resolution PNG and vector PDF figures:
-
-```powershell
-python src\generate_paper_figures.py
-```
-*Figures are saved to `experiments/figures/`.*
-
-### 5. Run Automated Unit Tests
+### 4. Run Automated Unit Tests
 
 ```powershell
 python -m pytest tests/test_reformulator.py -v
 ```
 
+---
 
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
+```
 
